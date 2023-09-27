@@ -78,15 +78,17 @@ public class AuthActivity extends AppCompatActivity {
         e.setText(prefs.getString("pass", "wifi.txt"));
         checkBox.setChecked(prefs.getBoolean("pantalla", true));*/
 
+        //Instancioamos clase SharedPreferences
         SharedPreferences sharedPref = getSharedPreferences
                 ("Credenciales",Context.MODE_PRIVATE);
 
+
         //no lo vamos a editar, pero si recoger datos.
         String usuario = sharedPref.getString("user","No existe dicha información");
-        String pass = sharedPref.getString("pass","No existe dicha información");
         Boolean check = sharedPref.getBoolean("check",false);
+
+
         e.setText(usuario);
-        p.setText(pass);
         checkBox.setChecked(check);
 
     }
@@ -102,21 +104,24 @@ public class AuthActivity extends AppCompatActivity {
     private void guardarPreferencias() {
         //Recogemos el email, pass y el checkbox (boolean)
         EditText e=findViewById(R.id.emailEditText);
-        EditText p=findViewById(R.id.passwordEditText);
         CheckBox checkBox=findViewById(R.id.acuerdoCheckBox);
 
+        //Instancioamos clase SharedPreferences
         SharedPreferences sharedPref = getSharedPreferences
                 ("Credenciales",Context.MODE_PRIVATE);
 
         String usuario=e.getText().toString();
-        String contra=p.getText().toString();
         Boolean check=checkBox.isChecked();
 
+        //Instancioamos su Editor
         SharedPreferences.Editor editor = sharedPref.edit();
 
+
+        //Introducimos los pares stributo valor deseados
         editor.putString("user", usuario);
-        editor.putString("pass", contra);
         editor.putBoolean("check",check);
+
+        //Guardamos los datos con apply() o commit()
         //editor.apply();
         editor.commit();
 

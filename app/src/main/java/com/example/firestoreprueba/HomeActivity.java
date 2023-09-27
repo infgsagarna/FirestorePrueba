@@ -180,15 +180,18 @@ public class HomeActivity extends AppCompatActivity {
         String name=n.getText().toString();
         String ageString=a.getText().toString();
         int age=Integer.parseInt(ageString);
-
+/*
         // Create a new user with a first and last name
         Map<String, Object> user = new HashMap<>();
         user.put("nombre", name);
-        user.put("edad", age);
+        user.put("edad", age);*/
+
+        Persona persona=new Persona(name,age);
+
 
         // Agregar un documento con un ID autogenerado
         db.collection("users")
-                .add(user)
+                .add(persona)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
