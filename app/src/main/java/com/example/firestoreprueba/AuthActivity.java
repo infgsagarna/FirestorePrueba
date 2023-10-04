@@ -108,7 +108,7 @@ public class AuthActivity extends AppCompatActivity {
 
         //Instancioamos clase SharedPreferences
         SharedPreferences sharedPref = getSharedPreferences
-                ("Credenciales",Context.MODE_PRIVATE);
+                (getString(R.string.cred),Context.MODE_PRIVATE);
 
         String usuario=e.getText().toString();
         Boolean check=checkBox.isChecked();

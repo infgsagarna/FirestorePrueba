@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Firestore Prueba</string>
+    <string name="cred">Credenciales</string>
 </resources>

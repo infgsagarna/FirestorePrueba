@@ -1,6 +1,6 @@
 package com.example.firestoreprueba;
 
-public class Persona {
+public class Persona{
     private String nombre;
     private int edad;
 
