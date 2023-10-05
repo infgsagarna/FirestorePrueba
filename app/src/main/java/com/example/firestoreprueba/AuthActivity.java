@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 
@@ -30,6 +31,7 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,7 +50,9 @@ public class AuthActivity extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
-       // FirebaseAuth.getInstance().signOut();
+
+
+        // FirebaseAuth.getInstance().signOut();
         //escribir();
         //leer();
         //borrarDocumento();
@@ -162,6 +166,10 @@ public class AuthActivity extends AppCompatActivity {
 
         String email=e.getText().toString();
         String pass=p.getText().toString();
+
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto","correo@gmail.com", null));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Android APP - ");
+        startActivity(Intent.createChooser(emailIntent,  getActivity().getString(R.string.enviar_mail)));
 
 
         botsup.setOnClickListener(new View.OnClickListener(){
